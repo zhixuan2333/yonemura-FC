@@ -49,6 +49,23 @@
 .news-title {
     font-size: xx-large;
 }
+.articles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .article-card {
     display: flex;
+    justify-content: center;
+    width: 60em;
+    height: 8em;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,.2)
+}
+.article-text {
+    margin: 1em;
+}
+.article-title {
+    font-size: large;
 }
