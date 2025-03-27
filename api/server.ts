@@ -18,7 +18,7 @@ interface User {
 const users: {[username: string]: string} = {};
 
 (async () => {
-users['admin'] = await bcrypt.hash("97e0b49b-ced1-4e1d-86e7-20cc6836fbfc", 10)
+users['admin'] = await bcrypt.hash("🥰🤪🤩🤔", 10)
 })()
 
 // JSONデータを解析するミドルウェア
