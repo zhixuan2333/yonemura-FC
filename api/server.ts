@@ -17,6 +17,7 @@ interface User {
 // ユーザーデータ（本番では絶対にDBに変更してください）
 const users: {[username: string]: string} = {};
 
+// 🥰🤪🤩🤔
 (async () => {
 users['admin'] = await bcrypt.hash("🥰🤪🤩🤔", 10)
 })()

@@ -30,6 +30,7 @@ const AuthForm: React.FC = () => {
       // 入力フィールドをクリア
       setUsername('');
       setPassword('');
+      window.location.href = '/dashboard-e7b1b3e3213123213.html';
     } catch (error: any) {
       setMessage(error.response?.data?.error || 'ログインに失敗しました');
     }
@@ -54,33 +55,12 @@ const AuthForm: React.FC = () => {
     }
   };
 
-  // ログイン済みの場合の表示
-  if (isLoggedIn) {
-    return (
-      <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl mb-6 text-center">ようこそ、{username}さん</h2>
-        <div className="space-y-4">
-          <button 
-            onClick={fetchPrivateData}
-            className="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600"
-          >
-            プライベートデータ取得
-          </button>
-          <button 
-            onClick={handleLogout}
-            className="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600"
-          >
-            ログアウト
-          </button>
-        </div>
-        {message && (
-          <div className="mt-4 text-center text-blue-500">
-            {message}
-          </div>
-        )}
-      </div>
-    );
+  useEffect(() => {
+    if (isLoggedIn) {
+      window.location.href = '/dashboard-e7b1b3e3213123213.html';
+    }
   }
+  , [isLoggedIn]);
 
   // ログインフォーム
   return (
