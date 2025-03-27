@@ -25,5 +25,7 @@ npm run dev:server
 
 `src/AuthForm.tsx` にて http://localhost:3000 を変更する
 
+FRONT: 5173
+API: 3000
 
 

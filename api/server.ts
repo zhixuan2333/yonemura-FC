@@ -5,6 +5,7 @@ import bcrypt from 'bcrypt';
 
 const app = express();
 import cors from 'cors';
+import path from 'path';
 app.use(cors());
 const SECRET_KEY = 'yone';
 
@@ -42,7 +43,7 @@ app.use(express.json());
 // });
 
 // ログイン
-app.post('/login', async (req: Request, res: Response) => {
+app.post('/api/login', async (req: Request, res: Response) => {
   const { username, password }: User = req.body;
 
   // ユーザーチェック
@@ -87,15 +88,22 @@ const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
 };
 
 // 認証が必要なプライベートルート
-app.get('/private', authenticateToken, (req: Request, res: Response) => {
+app.get('/api/private', authenticateToken, (req: Request, res: Response) => {
   res.json({ 
     message: '認証成功！', 
     user: (req as any).user 
   });
 });
 
+app.use(express.static(path.join(__dirname, "..", "dist")));
+//これを追加（全てをindex.htmlにリダイレクト。いわゆるrewrite設定）
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, "..", "dist", "index.html"));
+});
+
+
 // サーバー起動
 const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`サーバーが http://localhost:${PORT} で起動しました`);
+  console.log(`サーバーが http://localhost:${80} で起動しました`);
 });
