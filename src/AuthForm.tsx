@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const AuthForm: React.FC = () => {
+export const AuthForm: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -103,7 +103,7 @@ const AuthForm: React.FC = () => {
   );
 };
 
-const LoginPage: React.FC = () => {
+export const LoginPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center">
       <div className="container mx-auto">
@@ -113,4 +113,29 @@ const LoginPage: React.FC = () => {
   );
 };
 
-export default LoginPage;
+
+
+export function LogoutPage() {
+  const handleLogout = () => {
+    // トークンを削除してログアウト
+    localStorage.removeItem('token');
+
+    window.location.href = '/';
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center">
+      <div className="container mx-auto">
+        <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+          <h2 className="text-2xl mb-6 text-center">ログアウト</h2>
+          <button 
+            onClick={handleLogout}
+            className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
+          >
+            ログアウト
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

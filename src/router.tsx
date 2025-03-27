@@ -1,7 +1,7 @@
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
-import LoginPage from './AuthForm';
+import {LoginPage, LogoutPage} from './AuthForm';
 
 
 function Router() {
@@ -10,6 +10,7 @@ function Router() {
       <Routes>
         <Route path="/" element={<App />} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path="/logout" element={<LogoutPage />} />
 
       </Routes>
     </BrowserRouter>
