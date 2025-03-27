@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css" type="text/css">
+
+    <!-- Font Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+    <!-- End Font Import -->
+
+    <title>Yonemura Fanclub - Top</title>
+</head>
+<body>
+    <header>
+        <div class="header-img">
+            <img class="header-img-data" src="e681b5e4b880.jpg" alt="Yonemura Keiichi">
+        </div>
+        <p class="header-title pop-font">米村 恵一 ふぁんくらぶ</p>
+    </header>
+
+    <div class="flag" id="flag">
+        <p class="flag-title pop-font">フラグ</p>
+        <p class="pop-font">flag{dummy_flag}</p>
+    </div>
+
+    <div class="latest-video">
+        <p class="latest-video-title pop-font">新着動画(ファン必見)</p>
+        <div id="player">
+
+        </div>
+
+        <script>
+            let tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            let firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+            let player;
+    
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('player', {
+                    videoId: 'aOkmgKOGT7M',
+                    events: {
+                        'onStateChange': onPlayerStateChange
+                    }
+                });
+            }
+    
+            function onPlayerStateChange(event) {
+                if (event.data === YT.PlayerState.PLAYING){
+                    document.getElementById('flag').style.display = 'block';
+                }
+            }
+        </script>
+
+    </div>
+    <div class="news">
+        <p class="news-title pop-font">新着ニュース</p>
+
+        <div class="article-card">
+            <img src="" class="article-card-img">
+        </div>
+    </div>
+</body>
+</html>
