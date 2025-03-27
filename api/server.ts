@@ -6,7 +6,7 @@ import bcrypt from 'bcrypt';
 const app = express();
 import cors from 'cors';
 app.use(cors());
-const SECRET_KEY = '';
+const SECRET_KEY = 'yone';
 
 // ユーザーインターフェース
 interface User {
@@ -18,27 +18,27 @@ interface User {
 const users: {[username: string]: string} = {};
 
 (async () => {
-users['admin'] = await bcrypt.hash("97e0b49b-ced1-4e1d-86e7-20cc6836fbfc", 10)
+users['admin'] = await bcrypt.hash("🥰🤪🤩🤔", 10)
 })()
 
 // JSONデータを解析するミドルウェア
 app.use(express.json());
 
 // ユーザー登録
-app.post('/signup', async (req: Request, res: Response) => {
-  const { username, password }: User = req.body;
+// app.post('/signup', async (req: Request, res: Response) => {
+//   const { username, password }: User = req.body;
 
-  // ユーザーが既に存在するかチェック
-  if (users[username]) {
-    return res.status(400).json({ error: 'ユーザーは既に存在します' });
-  }
+//   // ユーザーが既に存在するかチェック
+//   if (users[username]) {
+//     return res.status(400).json({ error: 'ユーザーは既に存在します' });
+//   }
 
-  // パスワードをハッシュ化
-  const hashedPassword = await bcrypt.hash(password, 10);
-  users[username] = hashedPassword;
+//   // パスワードをハッシュ化
+//   const hashedPassword = await bcrypt.hash(password, 10);
+//   users[username] = hashedPassword;
 
-  res.status(201).json({ message: '登録成功' });
-});
+//   res.status(201).json({ message: '登録成功' });
+// });
 
 // ログイン
 app.post('/login', async (req: Request, res: Response) => {
