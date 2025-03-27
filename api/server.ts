@@ -19,7 +19,7 @@ const users: {[username: string]: string} = {};
 
 // 🥰🤪🤩🤔
 (async () => {
-users['admin'] = await bcrypt.hash("ぱすわーど", 10)
+users['admin'] = await bcrypt.hash("🥰🤪🤩🤔", 10)
 })()
 
 // JSONデータを解析するミドルウェア

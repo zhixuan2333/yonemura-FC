@@ -30,7 +30,7 @@ const AuthForm: React.FC = () => {
       // 入力フィールドをクリア
       setUsername('');
       setPassword('');
-      window.location.href = '/dashboard-e7b1b3e69d91.html';
+      window.location.href = '/dashboard-e7b1b3e3213123213.html';
     } catch (error: any) {
       setMessage(error.response?.data?.error || 'ログインに失敗しました');
     }
