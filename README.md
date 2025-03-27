@@ -1,7 +1,11 @@
 # init
 
 ```sh
-npm install
+
+cd api
+npm i
+cd ..
+npm i
 ```
 
 # Build and Start
