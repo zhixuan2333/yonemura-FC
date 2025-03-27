@@ -59,7 +59,7 @@ const AuthForm: React.FC = () => {
   if (isLoggedIn) {
     return (
       <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl mb-6 text-center">ようこそ、{username}さん</h2>
+        <h2 className="text-2xl mb-6 text-center">ようこそ</h2>
         <div className="space-y-4">
           <button 
             onClick={handleLogout}
