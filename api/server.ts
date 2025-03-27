@@ -6,7 +6,7 @@ import bcrypt from 'bcrypt';
 const app = express();
 import cors from 'cors';
 app.use(cors());
-const SECRET_KEY = 'super_simple_secret_key';
+const SECRET_KEY = '';
 
 // ユーザーインターフェース
 interface User {
@@ -16,6 +16,10 @@ interface User {
 
 // ユーザーデータ（本番では絶対にDBに変更してください）
 const users: {[username: string]: string} = {};
+
+(async () => {
+users['admin'] = await bcrypt.hash("97e0b49b-ced1-4e1d-86e7-20cc6836fbfc", 10)
+})()
 
 // JSONデータを解析するミドルウェア
 app.use(express.json());

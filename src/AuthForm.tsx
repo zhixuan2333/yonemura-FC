@@ -125,7 +125,7 @@ const AuthForm: React.FC = () => {
 
 const LoginPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col justify-center">
+    <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center">
       <div className="container mx-auto">
         <AuthForm />
       </div>
