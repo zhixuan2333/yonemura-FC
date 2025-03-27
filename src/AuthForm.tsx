@@ -36,24 +36,6 @@ export const AuthForm: React.FC = () => {
     }
   };
 
-  const handleLogout = () => {
-    // トークンを削除してログアウト
-    localStorage.removeItem('token');
-    setIsLoggedIn(false);
-    setMessage('ログアウトしました');
-  };
-
-  const fetchPrivateData = async () => {
-    try {
-      const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:3000/private', {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      setMessage(response.data.message);
-    } catch (error: any) {
-      setMessage(error.response?.data?.error || 'アクセスできません');
-    }
-  };
 
   useEffect(() => {
     if (isLoggedIn) {
